@@ -45,6 +45,14 @@ class TasksController < ApplicationController
     end 
   end
 
+  def destroy
+    binding.pry
+    @task = Task.find(params[task_id]) 
+    
+      @task.destroy
+      redirect_to "index"
+  end
+
   private
 
   def task_params

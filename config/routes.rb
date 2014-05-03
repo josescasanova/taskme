@@ -1,7 +1,7 @@
 Taskme::Application.routes.draw do
   root :to => "home#index"
   resources :users, :only => [:index, :show, :edit, :update ] do
-    resources :tasks, :except => [:destroy] do
+    resources :tasks do
       resources :proposals, :except => [:destroy]
     end
   end
