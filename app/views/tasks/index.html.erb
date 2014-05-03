@@ -9,7 +9,11 @@
       <% end %>
         <% @tasks.each do |task| %>
           <b><a href="<%= task_path(task) %>"><%= task.title %></a></b><br />
-          <% if user_signed_in? %><a href="<%= edit_task_path(task) %>">Edit Task</a><br /><br /><% end %>
+          <% if user_signed_in? %>
+            <% if task.customer_id == @current_user.id %>
+              <a href="<%= edit_task_path(task) %>">Edit Task</a><br /><br />
+            <% end %>
+          <% end %>
         <% end %>
       </div>
     </div>
