@@ -1,13 +1,14 @@
 Taskme::Application.routes.draw do
   root :to => "home#index"
-  resources :users, :only => [:index, :show, :edit, :update ] do
-    resources :tasks, :except => [:destroy] do
-      resources :proposals, :except => [:destroy]
-    end
-  end
+  resources :users, :only => [:index, :show, :edit, :update ]
+    # resources :tasks, :except => [:destroy] do
+    #   resources :proposals, :except => [:destroy]
+    # end
+  # end
 
-  resources :tasks, :except => [:destroy]
-  resources :proposals, :except => [:destroy]
+  resources :tasks, :except => [:destroy] do
+    resources :proposals, :except => [:destroy]
+  end
 
   get '/auth/:provider/callback' => 'sessions#create'
   get '/signin' => 'sessions#new', :as => :signin

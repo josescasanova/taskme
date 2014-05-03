@@ -1,8 +1,7 @@
 class ProposalsController < ApplicationController
 
   #  def index
-  #   @current_user = current_user
-  #   @tasks = Task.all
+  #   @proposals = Proposal.where
   # end
 
   def new
@@ -11,6 +10,8 @@ class ProposalsController < ApplicationController
 
   def create
     @proposal = Proposal.create(proposal_params)
+    # @proposal.task_id = @task.id
+    @proposal.provider_id = current_user.id
     if @proposal.save
       flash[:notice] = "You have successfully submitted a proposal."
       redirect_to tasks_path
