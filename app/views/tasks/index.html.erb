@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row clearfix">
+    <div class="col-md-12 column">
+      <div class="page-header">
+        <h1>Tasks</h1>
+      </div>
+      <% if user_signed_in? %>
+      <b><a href="<%= new_task_path %>">Create a new task</a><br /><br /></b>
+      <% end %>
+        <% @tasks.each do |task| %>
+          <b><a href="<%= task_path(task) %>"><%= task.title %></a></b><br />
+          <% if user_signed_in? %><a href="<%= edit_task_path(task) %>">Edit Task</a><br /><br /><% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+

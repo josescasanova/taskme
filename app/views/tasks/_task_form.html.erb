@@ -1,0 +1,6 @@
+<%= form_for @task do |f| %>
+  <p>Title:</p>                       <%= f.text_field :title, label: "Title" %>
+  <p>Description:</p>                  <%= f.text_field :description, label: "Description" %> <br />
+  <p>Category:</p>                    <%= f.text_field :category, label: "Category" %>
+  <%= f.submit(@task.new_record? ? 'Create' : 'Update') %>
+<% end %>

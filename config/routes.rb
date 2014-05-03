@@ -7,6 +7,6 @@ Taskme::Application.routes.draw do
   get '/auth/failure' => 'sessions#failure'
   get 'dashboard', to: 'dashboard#index'
 
-  resources :reviews, :only => [:index, :show, :edit, :update ]
-  resources :tasks, :only => [:index, :show, :edit, :update ]
+  resources :reviews, :except => [:destroy]
+  resources :tasks, :except => [:destroy]
 end
