@@ -1,1 +1,9 @@
-dashboard
+
+<p>Earned points: <%= current_user.points %></p>
+<h1>My Tasks</h1>
+<% @tasks.each do |task| %>
+	Title: <%= @task.title %> <br />
+	Category: <%= @task.category %> <br />
+	Description: <%= @task.description %> <br />
+<% end %>
+<h1>My Proposals</h1>

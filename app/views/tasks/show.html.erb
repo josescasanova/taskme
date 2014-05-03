@@ -2,8 +2,8 @@ Title: <%= @task.title %> <br />
 Category: <%= @task.category %> <br />
 Description: <%= @task.description %> <br />
 
+<% if current_user.id != @task.customer_id %>
 <%= link_to "I'll help you!", new_user_task_proposal_path(@current_user, @task) %>
-
+<% end %>
 
 <br><br><br>
- -> proposal (form) -> dashboard (proposals) if accept -> set task provider

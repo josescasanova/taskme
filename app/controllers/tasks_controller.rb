@@ -6,6 +6,7 @@ class TasksController < ApplicationController
   end
 
   def new
+
     @task = Task.new
   end
 
@@ -16,7 +17,7 @@ class TasksController < ApplicationController
 
     if @task.save
       flash[:notice] = "You have successfully added a task"
-      redirect_to tasks_path
+      redirect_to user_tasks_path(current_user)
     else
       flash[:alert] = "You cannot add this task, check the errors."
       render :new
@@ -30,13 +31,14 @@ class TasksController < ApplicationController
 
   def edit
     @task = Task.find(params[:id])
+
   end
 
   def update
     @task =  Task.find(params[:id])
     if @task.update(task_params)
       flash[:notice] = "This task has been updated."
-      redirect_to tasks_path
+      redirect_to user_tasks_path(current_user)
     else
       flash[:alert] = "Task has not been updated, see errors."
       render :edit
