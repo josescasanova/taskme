@@ -2,7 +2,7 @@ class TasksController < ApplicationController
 
   def index
     @current_user = current_user
-    @tasks = Task.all
+    @tasks = Task.where(customer_id: @current_user.id)
   end
 
   def new
@@ -13,6 +13,7 @@ class TasksController < ApplicationController
     @task = Task.create(task_params)
     @task.customer_id = current_user.id
     @task.status = "Open"
+
     if @task.save
       flash[:notice] = "You have successfully added a task"
       redirect_to tasks_path

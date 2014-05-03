@@ -5,13 +5,13 @@
         <h1>Tasks</h1>
       </div>
       <% if user_signed_in? %>
-      <b><a href="<%= new_task_path %>">Create a new task</a><br /><br /></b>
+      <b><a href="<%= new_user_task_path(current_user) %>">Create a new task</a><br /><br /></b>
       <% end %>
         <% @tasks.each do |task| %>
-          <b><a href="<%= task_path(task) %>"><%= task.title %></a></b><br />
+          <b><a href="<%= user_task_path(current_user, task) %>"><%= task.title %></a></b><br />
           <% if user_signed_in? %>
             <% if task.customer_id == @current_user.id %>
-              <a href="<%= edit_task_path(task) %>">Edit Task</a><br /><br />
+              <a href="<%= edit_user_task_path(current_user, task) %>">Edit Task</a><br /><br />
             <% end %>
           <% end %>
         <% end %>
