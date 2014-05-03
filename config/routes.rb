@@ -14,5 +14,6 @@ Taskme::Application.routes.draw do
   get 'dashboard', to: 'dashboard#index'
 
   resources :reviews, :except => [:destroy]
+  get 'tasks', to: 'home#tasks'
 
 end
