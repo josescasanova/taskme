@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140503155900) do
+ActiveRecord::Schema.define(version: 20140503162324) do
+
+  create_table "reviews", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "testimonial"
+    t.integer  "rating"
+    t.integer  "user_id"
+    t.integer  "task_id"
+  end
 
   create_table "tasks", force: true do |t|
     t.text     "description"
