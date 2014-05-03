@@ -2,7 +2,7 @@
 <p>User: <%= @user.name %></p>
 <p>Email: <%= @user.email if @user.email %></p>
 
-<h3>Reviews</h3>
+<h3>Reviews of this user</h3>
 <% @reviews.each do |review| %>
   Rating:<%= review.rating %> <br />
   Testimonial: <%= review.testimonial %> <br />

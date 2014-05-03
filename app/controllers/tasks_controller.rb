@@ -13,10 +13,10 @@ class TasksController < ApplicationController
     @task.customer_id = current_user.id
     @task.status = "Open"
     if @task.save
-      flash[:success] = "You have successfully added a task"
+      flash[:notice] = "You have successfully added a task"
       redirect_to tasks_path
     else
-      flash[:error] = "You cannot add this task, check the errors."
+      flash[:alert] = "You cannot add this task, check the errors."
       render :new
     end
   end
@@ -32,10 +32,10 @@ class TasksController < ApplicationController
   def update
     @task =  Task.find(params[:id])
     if @task.update(task_params)
-      flash[:success] = "This task has been updated."
+      flash[:notice] = "This task has been updated."
       redirect_to tasks_path
     else
-      flash[:error] = "Task has not been updated, see errors."
+      flash[:alert] = "Task has not been updated, see errors."
       render :edit
     end 
   end
