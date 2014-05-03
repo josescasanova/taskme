@@ -1,4 +1,59 @@
-RECIPES
-["apps4", "controllers", "core", "deployment", "email", "extras", "frontend", "gems", "git", "init", "models", "prelaunch", "railsapps", "readme", "routes", "saas", "setup", "testing", "tests4", "views"]
-PREFERENCES
-{:git=>true, :apps4=>"none", :dev_webserver=>"webrick", :prod_webserver=>"same", :database=>"sqlite", :templates=>"erb", :tests=>"rspec", :continuous_testing=>"none", :frontend=>"bootstrap3", :email=>"gmail", :authentication=>"omniauth", :omniauth_provider=>"facebook", :authorization=>"none", :form_builder=>"none", :starter_app=>"users_app"}
+Taskme
+========================
+
+This application was generated with the rails_apps_composer gem:
+https://github.com/RailsApps/rails_apps_composer
+provided by the RailsApps Project:
+http://railsapps.github.io/
+
+________________________
+
+Recipes:
+
+* apps4
+* controllers
+* core
+* deployment
+* email
+* extras
+* frontend
+* gems
+* git
+* init
+* models
+* prelaunch
+* railsapps
+* readme
+* routes
+* saas
+* setup
+* testing
+* tests4
+* views
+
+Preferences:
+
+* git: true
+* apps4: none
+* dev_webserver: webrick
+* prod_webserver: same
+* database: sqlite
+* templates: erb
+* tests: rspec
+* continuous_testing: none
+* frontend: bootstrap3
+* email: gmail
+* authentication: omniauth
+* omniauth_provider: facebook
+* authorization: none
+* form_builder: none
+* starter_app: users_app
+* rvmrc: false
+* local_env_file: figaro
+* better_errors: true
+* pry: true
+* github: true
+
+________________________
+
+License
