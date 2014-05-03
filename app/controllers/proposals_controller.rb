@@ -10,7 +10,7 @@ class ProposalsController < ApplicationController
 
   def create
     @proposal = Proposal.create(proposal_params)
-    # @proposal.task_id = @task.id
+    @proposal.task_id = params[:task_id]
     @proposal.provider_id = current_user.id
     if @proposal.save
       flash[:notice] = "You have successfully submitted a proposal."
