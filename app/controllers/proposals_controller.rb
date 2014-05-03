@@ -43,6 +43,6 @@ class ProposalsController < ApplicationController
   # private
 
   def proposal_params
-    params.require(:proposal).permit(:description, :price)
+    params.require(:proposal).permit(:description, :price, :task_id, :provider_id)
   end
 end
