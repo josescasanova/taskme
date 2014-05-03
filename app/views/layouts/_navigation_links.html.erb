@@ -1,11 +1,10 @@
-<%# add navigation links to this file %>
-  
-<% if user_signed_in? %>
-	<li><%= link_to 'Tasks', user_tasks_path(current_user.id) %></li> 
-  <li><%= link_to 'Users', users_path %></li>
-<% end %>
+<%# add navigation links to this file %>  
 <% if user_signed_in? %>
   <li><%= link_to 'Logout', signout_path %></li>
+  <li><%= link_to 'Tasks', user_tasks_path(current_user.id) %></li> 
+  <li><%= link_to 'Users', users_path %></li>
+  <li>test</li>
 <% else %>
   <li><%= link_to 'Login', signin_path %></li>
+  <li>test</li>
 <% end %>

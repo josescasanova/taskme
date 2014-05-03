@@ -14,4 +14,13 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap
+//= require dropzone.js
+//= require bootstrap.js
+//= require bootstrap.min.js
+//= require jquery-1.10.2.min.js
+//= require jquery.flot.js
+//= require jquery.fancybox-buttons.js
+//= require jquery.fancybox-media.js
+//= require jquery.fancybox-thumbs.js
+//= require global.js
 //= require_tree .
