@@ -15,7 +15,7 @@ class TasksController < ApplicationController
 
     if @task.save
       flash[:notice] = "You have successfully added a task"
-      redirect_to user_tasks_path(current_user)
+      redirect_to dashboard_path(current_user)
     else
       flash[:alert] = "You cannot add this task, check the errors."
       render :new
