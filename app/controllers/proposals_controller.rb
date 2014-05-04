@@ -31,6 +31,23 @@ class ProposalsController < ApplicationController
     redirect_to user_task_path(current_user, params[:task_id])
   end
 
+  def accepted
+   prop = Proposal.where(id: params[:proposal]).first
+   prop.accepted = true
+   find_the_task = Task.where(id: prop.task_id).first
+   find_the_task.status = "Processing"
+   find_the_task.save!
+   prop.save!
+   redirect_to dashboard_path
+  end
+
+  def declined
+   prop = Proposal.where(id: params[:proposal]).first
+   prop.accepted = false
+   prop.save!
+   redirect_to dashboard_path
+  end
+
   # def show
   #   @task = Task.find(params[:id])
   # end
@@ -54,6 +71,6 @@ class ProposalsController < ApplicationController
 
 
   def proposal_params
-    params.require(:proposal).permit(:description, :price, :task_id, :provider_id)
+    params.require(:proposal).permit(:description, :price, :task_id, :provider_id, :accepted)
   end
 end
