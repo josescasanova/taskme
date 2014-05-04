@@ -186,7 +186,7 @@ a.navbar-brand {
   height: 60px;
   line-height: 60px;
   font-family: 'Open Sans', Tahoma, sans-serif;
-  background-image: './css/images/logo.png': 
+  background-image: './css/images/logo.png';
 }
 a.navbar-brand i {
   float: left;
