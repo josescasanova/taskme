@@ -9,6 +9,12 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.0 | MIT License | git.io/normalize */
+
+/*custom*/
+.cancel {
+  background-color: red;
+}
+/*end custom */
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;

@@ -1,16 +1,14 @@
 class TasksController < ApplicationController
 
   def index
-    @current_user = current_user
-    @tasks = Task.where(customer_id: @current_user.id)
+    @tasks = Task.where(customer_id: current_user.id)
   end
 
   def new
-    @task = Task.new
+    @task = current_user.tasks.new
   end
 
   def create
-
     @task = current_user.tasks.create(task_params)
     @task.customer_id = current_user.id
     @task.status = "Open"
@@ -25,6 +23,7 @@ class TasksController < ApplicationController
   end
 
   def show
+
     @task = Task.find(params[:id])
     @current_user = current_user
     @proposals = @task.proposals.all

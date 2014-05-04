@@ -1,5 +1,78 @@
-<%= form_for [:user, :task, @proposal] do |f| %>
-  <p>Bid:</p>                       <%= f.number_field :price, label: "Price" %>
-  <p>Proposal Comments:</p>               <%= f.text_field :description, label: "Description" %> <br />
-  <%= f.submit 'Create' %>
-<% end %>
+<%= bootstrap_form_for [:user, :task, @proposal] do |f| %>
+ 
+<hr class="topbar"/>
+  <div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="sidebar-account">   
+              <div class="row ">
+                <div class="col-lg-12">
+                  <div class="panel panel-default">
+                    <div class="panel-heading">Faircoin</div>
+                    <div class="panel-body">
+                      <ul class="nav">
+                        <li>
+                          <a class="active" href="<%= dashboard_path %>">Dashboard</a>
+                        </li>           
+                        <li>
+                          <a class="active" href="<%= new_user_task_path %>">Create a new task</a>
+                        </li>
+                        <li>
+                          <a class="active" href="<%= user_tasks_path %>">View my tasks</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div class="col-sm-9">
+            <form class="form-vertical" action="">
+                <div class="panel panel-default">
+                  <div class="panel-heading"><%= @proposal.new_record? ? 'Create' : 'Update'%> the proposal </div>
+                    <div class="panel-body">
+                      <div class="row">  
+                        <div class="col-sm-12 "  >
+                          <div class="form-group">
+                            <div class="row">
+                              <div class="col-sm-2" style="margin-top: 10px;">
+                              </div>
+                               <div class="col-sm-12">
+                               
+                                <%= f.number_field :price, label: "Bid", html: { class: "form-control col-sm-12" } %>
+                              </div>
+                              <div class="col-sm-2" style="margin-top: 10px;">
+                                <!-- <label>Description</label> -->
+                              </div>
+							 <div class="col-sm-12">
+							 	
+                                <%= f.text_field :description, label: "Description", html: { class: "form-control col-sm-12" }, rows: 8 %>
+                              </div>
+                              <div class="col-sm-2" style="margin-top: 10px;">
+                                <!-- <label>Description</label> -->
+                              </div>	
+								
+                              <div class="col-sm-6">
+
+                                     <%= f.submit(@proposal.new_record? ? 'Create' : 'Update') %> 
+                                </div> 
+                                
+                            </div>
+                          </div>      
+                        </div>      
+                      </div>      
+                    </div>      
+                  </div>
+
+                  <% end %>
+
+
+
+            </div>
+
+
+
+
+        </div>
+    </div>

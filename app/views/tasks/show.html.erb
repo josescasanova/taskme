@@ -31,7 +31,7 @@
             <div class="row">
 
                 <div class="col-sm-7">  
-                    <h1><%= @task.title %> </h1>
+                    <h1><%= @task.title %> - <% @task.budget %> </h1>
                     <p>Location: Miami, FL</p>
                     <p>Category: <%= @task.category %></p>
                 </div>
@@ -116,10 +116,16 @@
                       <Br><br>  
           </div>
           
-          <div class="col-sm-12" style="text-align: center; margin: 0 auto">  
-                      <%= link_to "I'll help you!", new_user_task_proposal_path(@current_user, @task), class: "btn btn-info" %>
-                    </div>
+
           
+
+          <div class="col-sm-12" style="text-align: center; margin: 0 auto"> 
+                    <% if user_proposal?(@task) %> 
+                    <%= link_to "Cancel Proposal", new_user_task_proposal_path(@current_user, @task), class: "btn btn-danger" %>
+                    <% else %>
+                      <%= link_to "I'll help you!", new_user_task_proposal_path(@current_user, @task), class: "btn btn-info" %>
+                      <%end%>
+                    </div>
         </div>
 
 

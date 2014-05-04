@@ -3,6 +3,8 @@ class ProposalsController < ApplicationController
   #  def index
   #   @proposals = Proposal.where
   # end
+  def show
+  end
 
   def new
     @task = Task.find(params[:task_id])
@@ -21,6 +23,12 @@ class ProposalsController < ApplicationController
     else
       flash[:alert] = "You cannot add this proposal, check the errors."
     end
+  end
+
+  def destroy
+    proposal = Proposal.find(params[proposal_id])
+    proposal.destroy
+    redirect_to "index"
   end
 
   # def show
@@ -43,6 +51,7 @@ class ProposalsController < ApplicationController
   # end
 
   # private
+
 
   def proposal_params
     params.require(:proposal).permit(:description, :price, :task_id, :provider_id)
