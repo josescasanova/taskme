@@ -1,11 +1,10 @@
 
-<<<<<<< HEAD
-<% if current_user.id != @task.customer_id %>
+
+<!--<% if current_user.id != @task.customer_id %>
 <%= link_to "I'll help you!", new_user_task_proposal_path(@current_user, @task) %>
 <% end %>
+<br><br><br>-->
 
-<br><br><br>
-=======
 
             <div class="container" id="listings-page">
     <div class="row">
@@ -379,4 +378,14 @@
         </div>
     </div>
 </div>
->>>>>>> 275874d9f50f1bf0bb948eb42413fa517b5e75e7
+<!-- 
+<% if current_user.id == @task.customer_id %>
+	<h3>Received Proposals</h3>
+	<%= @proposals.each do |proposal| %>
+		<ul>
+			
+			<li>Provider's name: <%= User.find(proposal.provider_id).name %></li>
+			<li>Proposal: <%= proposal.description %> </li>
+		</ul>
+	<%end%>
+	<%end%> -->

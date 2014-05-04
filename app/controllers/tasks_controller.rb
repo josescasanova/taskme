@@ -6,12 +6,12 @@ class TasksController < ApplicationController
   end
 
   def new
-
     @task = Task.new
   end
 
   def create
-    @task = Task.create(task_params)
+
+    @task = current_user.tasks.create(task_params)
     @task.customer_id = current_user.id
     @task.status = "Open"
 
@@ -27,6 +27,7 @@ class TasksController < ApplicationController
   def show
     @task = Task.find(params[:id])
     @current_user = current_user
+    @proposals = @task.proposals.all
   end
 
   def edit
@@ -46,7 +47,7 @@ class TasksController < ApplicationController
   end
 
   def destroy
-    binding.pry
+    
     @task = Task.find(params[task_id]) 
     
       @task.destroy

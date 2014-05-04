@@ -5,6 +5,11 @@ class HomeController < ApplicationController
   end
 
   def tasks
+<<<<<<< HEAD
     @tasks = Task.all
+=======
+  	@current_user = current_user
+  	@tasks = Task.all
+>>>>>>> borja
   end
 end

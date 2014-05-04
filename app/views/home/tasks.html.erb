@@ -1,1 +1,23 @@
-All tasks
+<div class="container">
+  <div class="row clearfix">
+    <div class="col-md-12 column">
+      <div class="page-header">
+        <h1>Tasks</h1>
+      </div>
+      <% if user_signed_in? %>
+      <b><a href="<%= new_user_task_path(current_user) %>">Create a new task</a><br /><br /></b>
+      <% end %>
+        <% @tasks.each do |task| %>
+          <b></b>
+          <%= link_to task.title, user_task_path(current_user, task) %><br />
+          <% if user_signed_in? %>
+            <% if task.customer_id == @current_user.id %>
+              <%= link_to "Edit Task", edit_user_task_path(current_user, task) %> <br /><br />
+             <!--  <%= link_to "Delete", user_tasks_path(current_user, @task), method: :delete, data: { confirm: 'Are you sure?' }  %> -->
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
