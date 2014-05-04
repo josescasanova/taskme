@@ -98,21 +98,23 @@
                 <div class="col-sm-12">
 
                        <h3> <b>Task:</b> <%= task.title %> </h3>
+
                        <br>
                        <% task.proposals.each do |y|%>
-                                       <div class="col-sm-2 avatar">
-                                        <br><br>
-                    <img alt="176 * 120" src="<%= User.where(id: y.provider_id).first.image %>">
-                </div>
+                      <div class="avatar pull-left">
+                        <br>
+                       <img margin="10px" src="<%= User.where(id: y.provider_id).first.image %>?&type=small">
+                              </div>         
 
-                         <h4><b>Proposal Description</b><br> <%= y.description %><br>
-                         <b>Bid:</b> <%= y.price %></h4>
+                         <h4><b>Bid</b> <br><%= y.price %> Faircoin<br><b>Proposal Description</b><br> <%= y.description %><br>
+                         </h4>
                          <span class="classified_links pull-right">
                         <button type="submit" class="btn btn-primary3 pull-right" style="margin-left: 5px;">Reject</button> 
                         <button type="submit" class="btn btn-primary pull-right" style="margin-left: 5px;">Accept</button>    
                         </span>
                         <br><br>
-                        <br><br>
+                         <div class="col-sm-12">
+                         </div>
                        <% end %>
                     <p class="muted" style="float:right;"></p>
                     <br>
