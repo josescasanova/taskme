@@ -19,13 +19,13 @@
                     <div class="panel-body">
                       <ul class="nav">
                         <li>
-                          <a class="active" href="<%= dashboard_path %>">Dashboard</a>
+                          <!-- <a class="active" href="<%= dashboard_path %>">Dashboard</a> -->
                         </li>           
                         <li>
-                          <!-- <a class="active" href=" new_user_task_path ">Create a new task</a> -->
+                          <a class="active" href="<%= new_user_task_path(current_user) %>">Create a new task</a>
                         </li>
                         <li>
-                          <!-- <a class="active" href=" user_tasks_path">View my tasks</a> -->
+                          <a class="active" href="<%= user_tasks_path(current_user) %>">View my tasks</a>
                         </li>
                       </ul>
                     </div>
@@ -63,7 +63,7 @@
 
                     </div>
    
-<!--                     <div class="row">
+                   <!--  <div class="row">
 
                         <div class="col-sm-12" >
                             <h3 style="text-align: center;">Faircoin market place</h3>
