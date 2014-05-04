@@ -93,15 +93,18 @@
 
                     <% @tasks.each do |task| %>
            <div class="row  listing-row">
-                <div class="col-sm-2 avatar">
-                    <img alt="176 * 120" src="<%= current_user.image %>">
-                </div>
+      
 
-                <div class="col-sm-10">
+                <div class="col-sm-12">
 
                        <h3> <b>Task:</b> <%= task.title %> </h3>
                        <br>
                        <% task.proposals.each do |y|%>
+                                       <div class="col-sm-2 avatar">
+                                        <br><br>
+                    <img alt="176 * 120" src="<%= User.where(id: y.provider_id).first.image %>">
+                </div>
+
                          <h4><b>Proposal Description</b><br> <%= y.description %><br>
                          <b>Bid:</b> <%= y.price %></h4>
                          <span class="classified_links pull-right">
