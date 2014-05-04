@@ -88,7 +88,7 @@
             </div>
             
             <div class="panel panel-default">
-                <div class="panel-heading">Proposals</div>
+                <div class="panel-heading">Tasks & Proposals</div>
                 <div class="panel-body">
 
                     <% @tasks.each do |task| %>
@@ -101,6 +101,7 @@
 
                        <br>
                        <% task.proposals.each do |y|%>
+                       <% if y.accepted.nil? %>
                       <div class="avatar pull-left">
                         <br>
                        <img margin="10px" src="<%= User.where(id: y.provider_id).first.image %>?&type=small">
@@ -109,12 +110,16 @@
                          <h4><b>Bid</b> <br><%= y.price %> Faircoin<br><b>Proposal Description</b><br> <%= y.description %><br>
                          </h4>
                          <span class="classified_links pull-right">
-                        <button type="submit" class="btn btn-primary3 pull-right" style="margin-left: 5px;">Reject</button> 
-                        <button type="submit" class="btn btn-primary pull-right" style="margin-left: 5px;">Accept</button>    
+                          <%= link_to "Decline", declined_path(proposal: y, user: current_user, task: task ), class: "btn btn-primary3 pull-right", style: "margin-left: 5px;" %>
+                          <%= link_to "Accept", accepted_path(proposal: y, user: current_user, task: task ), class: "btn btn-primary pull-right", style: "margin-left: 5px;" %>
+                      
+                        <!-- <button type="submit" class="btn btn-primary3 pull-right" style="margin-left: 5px;">Reject</button> 
+                        <button type="submit" class="btn btn-primary pull-right" style="margin-left: 5px;">Accept</button>    --> 
                         </span>
                         <br><br>
                          <div class="col-sm-12">
                          </div>
+                         <% end %>
                        <% end %>
                     <p class="muted" style="float:right;"></p>
                     <br>

@@ -2,7 +2,7 @@ Taskme::Application.routes.draw do
   root :to => "home#index"
   resources :users, :only => [:index, :show, :edit, :update ] do
     resources :tasks do
-      resources :proposals  
+      resources :proposals 
     end
   end
 
@@ -15,5 +15,8 @@ Taskme::Application.routes.draw do
 
   resources :reviews, :except => [:destroy]
   get 'tasks', to: 'home#tasks'
+
+  get 'accepted', to: 'proposals#accepted' 
+  get 'declined', to: 'proposals#declined' 
 
 end
