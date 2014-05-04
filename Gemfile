@@ -14,6 +14,8 @@ gem 'bootstrap-sass'
 gem 'figaro', :github=>"laserlemon/figaro"
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'bootstrap_form'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_20]
