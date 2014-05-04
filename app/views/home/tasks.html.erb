@@ -1,23 +1,78 @@
-<div class="container">
-  <div class="row clearfix">
-    <div class="col-md-12 column">
-      <div class="page-header">
-        <h1>Tasks</h1>
-      </div>
-      <% if user_signed_in? %>
-      <b><a href="<%= new_user_task_path(current_user) %>">Create a new task</a><br /><br /></b>
-      <% end %>
-        <% @tasks.each do |task| %>
+
+
+            
+
+  <div class="container">
+
+    <br />
+
+
+
+    <div class="row">
+       
+
+        <div class="col-sm-12  listings">
+
+            <div class="row listing-row" style="margin-top: -10px;">
+                <div class="pull-left">
+                <h1>Tasks</h1>
+                </div>
+                <div class="pull-right">
+                    <% if user_signed_in? %>
+                  <b><a href="<%= new_user_task_path(current_user) %>" class="btn btn-info" >Create a new task</a><br /><br /></b>
+                  <% end %>
+                </div>
+            </div>
+            <% @tasks.each do |task| %>
           <b></b>
-          <%= link_to task.title, user_task_path(current_user, task) %><br />
-          <% if user_signed_in? %>
-            <% if task.customer_id == @current_user.id %>
-              <%= link_to "Edit Task", edit_user_task_path(current_user, task) %> <br /><br />
-             <!--  <%= link_to "Delete", user_tasks_path(current_user, @task), method: :delete, data: { confirm: 'Are you sure?' }  %> -->
-            <% end %>
+              <br />
+            <div class="row  listing-row">
+                            <div class="col-sm-2 avatar" align="center">
+                    <img height="75" class="avatar" src="<%=User.where(id: task.customer_id).first.image %>?&type=normal">
+                </div>
+
+                <div class="col-sm-10">
+                  <div class="pull-right">
+                    <%= link_to "View Task", user_task_path(current_user, task), class: "btn btn-warning" %>
+                  </div>
+                    <h3><%= link_to task.title, user_task_path(current_user, task) %></h3>
+                    <p class="ad-description">
+                      <br>  
+                        <strong>By <%= User.where(id: task.customer_id).first.name %></strong>                  
+                    </p>
+                    <p>
+                        <span class="classified_links pull-right">
+                          <% if user_signed_in? %>
+                            <% if task.customer_id == @current_user.id %>
+                              <%= link_to "Edit Task", edit_user_task_path(current_user, task), class: "link-info underline" %> <br /><br />
+                             <!--  <%= link_to "Delete", user_tasks_path(current_user, @task), method: :delete, data: { confirm: 'Are you sure?' }  %> -->
+                            <% end %>
+                          <% end %>
+                    </p>
+                </div>
+
+            </div>
           <% end %>
-        <% end %>
-      </div>
+        </div>
+
     </div>
-  </div>
+</div><!-- Modal -->
+
+
+<!-- Modal -->
+
+<div class="footer">
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-sm-4 col-xs-12">
+                <p><strong>&copy; Faircoin 2014</strong></p>
+                <p>All rights reserved</p>
+            </div>          
+
+            <div class="col-sm-8 col-xs-12">    
+            </div>
+        </div>
+    </div>
 </div>
