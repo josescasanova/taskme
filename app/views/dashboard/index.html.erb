@@ -1,8 +1,163 @@
-
+<!-- 
 <p>Available points: <%= current_user.points %></p>
 
 <br><br>
 
-<%= render 'my_tasks' %>
+<% render 'my_tasks' %>
 
-<%= render 'my_proposals' %>
+<% render 'my_proposals' %> -->
+
+<hr class="topbar"/>
+  <div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="sidebar-account">   
+              <div class="row ">
+                <div class="col-lg-12">
+                  <div class="panel panel-default">
+                    <div class="panel-heading">Faircoin</div>
+                    <div class="panel-body">
+                      <ul class="nav">
+                        <li>
+                          <a class="active" href="<%= dashboard_path %>">Dashboard</a>
+                        </li>           
+                        <li>
+                          <!-- <a class="active" href=" new_user_task_path ">Create a new task</a> -->
+                        </li>
+                        <li>
+                          <!-- <a class="active" href=" user_tasks_path">View my tasks</a> -->
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div class="col-sm-9">
+            <div class="panel panel-default">
+                <div class="panel-heading">Dashboard</div>
+                <div class="panel-body">
+
+                    <div class="row">
+
+                        <div class="col-sm-3 col-xs-6" style="border-right: 1px solid #DADADA; text-align: center; color:#27ae60;">
+                            <h3 style="text-align: center; color:#27ae60;">Faircoins</h3>
+                            <p style="font-size:16px;"><img src="assets/images/FC.png" width="10%" height="10%"> <b><%= current_user.points %></b></p>
+                        </div>
+
+                        <div class="col-sm-3 col-xs-6" style="border-right: 1px solid #DADADA; text-align: center;">
+                            <h3 style="text-align: center;">Tasks published</h3>
+                            <p><%= current_user.tasks.count %></p>
+                        </div>
+
+                        <div class="col-sm-3 col-xs-6" style="border-right: 1px solid #DADADA; text-align: center;">
+                            <h3 style="text-align: center;">Proposals Sent</h3>
+                            <p> <%= @proposals.count %></p>
+                        </div>
+
+                        <div class="col-sm-3 col-xs-6" style="text-align: center;">
+                            <h3 style="text-align: center;">Total Tasks</h3>
+                            <p><%= @tasks.count %></p>
+                        </div>
+
+                    </div>
+   
+<!--                     <div class="row">
+
+                        <div class="col-sm-12" >
+                            <h3 style="text-align: center;">Faircoin market place</h3>
+                          <div class="row center" style="text-align: center; margin-top:15px;">   
+                            <button type="submit" class="btn btn-primary" style="margin-left: 10px; width:200px">Buy coins</button>
+                            <button type="submit" class="btn btn-primary2" style="margin-left: 10px; width:200px">Convert coins</button> 
+                          </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="row">
+
+                        <div class="col-sm-12">
+                            <div id="visualization"></div>
+                        </div>
+
+                    </div> -->
+
+                </div>
+            </div>
+            
+            <div class="panel panel-default">
+                <div class="panel-heading">Proposals</div>
+                <div class="panel-body">
+
+                    <% @tasks.each do |task| %>
+           <div class="row  listing-row">
+                <div class="col-sm-2 avatar">
+                    <img alt="176 * 120" src="<%= current_user.image %>">
+                </div>
+
+                <div class="col-sm-10">
+
+                       <h3> <b>Task:</b> <%= task.title %> </h3>
+                       <br>
+                       <% task.proposals.each do |y|%>
+                         <h4><b>Proposal Description</b><br> <%= y.description %><br>
+                         <b>Bid:</b> <%= y.price %></h4>
+                         <span class="classified_links pull-right">
+                        <button type="submit" class="btn btn-primary3 pull-right" style="margin-left: 5px;">Reject</button> 
+                        <button type="submit" class="btn btn-primary pull-right" style="margin-left: 5px;">Accept</button>    
+                        </span>
+                        <br><br>
+                        <br><br>
+                       <% end %>
+                    <p class="muted" style="float:right;"></p>
+                    <br>
+                   <!--  <p class="ad-description">
+                        <strong><%= task.category %></strong>                  
+                    </p> -->
+                    <!-- <p> -->
+                      <!-- span class=" pull-left" style="color:#27ae60;font-size:24px;">
+                      <img src="assets/images/FC.png" width="20%" height="20%"> <%= task.budget %>
+                      </span> -->
+                      
+<!--                         <span class="classified_links pull-right">
+                        <button type="submit" class="btn btn-primary3 pull-right" style="margin-left: 10px;">Reject</button> 
+                        <button type="submit" class="btn btn-primary pull-right" style="margin-left: 10px;">Accept</button>    
+                        </span> -->
+                    </p>
+                </div>
+            </div>
+
+      <br />
+    <hr style="display: block; height: 1px;
+    border: 0; border-top: 1px solid #ddd;
+    margin: 1em 0; padding: 0;">
+    <% end %>
+
+
+                </div>
+
+            </div>
+</div>
+
+
+
+    </div>
+</div>
+
+<div class="footer">
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-sm-4 col-xs-12">
+                <p><strong>&copy; Faircoin 2014</strong></p>
+                <p>All rights reserved</p>
+            </div>          
+
+            <div class="col-sm-8 col-xs-12">    
+            </div>
+        </div>
+    </div>
+</div>
