@@ -1,7 +1,122 @@
-<%= form_for [current_user, @task] do |f| %>
-  <p>Title:</p>                       <%= f.text_field :title, label: "Title" %>
-  <p>Description:</p>                  <%= f.text_field :description, label: "Description" %> <br />
-  <p>Category:</p>                    <%= f.text_field :category, label: "Category" %>
-  <p>Budget:</p>                    <%= f.number_field :budget, label: "Budget" %>
-  <%= f.submit 'Update' %>
+<%= bootstrap_form_for [current_user, @task] do |f| %>
+
+<hr class="topbar"/>
+  <div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="sidebar-account">   
+              <div class="row ">
+                <div class="col-lg-12">
+                  <div class="panel panel-default">
+                    <div class="panel-heading">Faircoin</div>
+                    <div class="panel-body">
+                      <ul class="nav">
+                        <li>
+                          <a class="active" href="<%= dashboard_path %>">Dashboard</a>
+                        </li>           
+                        <li>
+                          <a class="active" href="<%= new_user_task_path %>">Create a new task</a>
+                        </li>
+                        <li>
+                          <a class="active" href="<%= user_tasks_path %>">View my tasks</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div class="col-sm-9">
+            <form class="form-vertical" action="">
+                <div class="panel panel-default">
+                  <div class="panel-heading"><%= @task.new_record? ? 'Create' : 'Update'%> a task</div>
+                    <div class="panel-body">
+                      <div class="row">  
+                        <div class="col-sm-12 "  >
+                          <div class="form-group">
+                            <div class="row">
+                              <div class="col-sm-2" style="margin-top: 10px;">
+                              </div>
+                              <div class="col-sm-12">
+                                <%= f.text_field :title, label: "Title", html: { class: "form-control col-sm-12" } %>
+                              </div>
+                              <div class="col-sm-2" style="margin-top: 10px;">
+                                <!-- <label>Description</label> -->
+                              </div>
+                              <div class="col-sm-12">
+                                <%= f.text_area :description, label: "Description", html: { class: "form-control col-sm-8 expand", rows: "6", style: "width: 99%" } %>
+                              </div>
+
+                              <div class="col-sm-2" style="margin-top: 10px;">
+                                <!-- <label>Description</label> -->
+                              </div>
+                              <div class="col-sm-12">
+                                <%= f.text_field :location, label: "Location", html: { class: "form-control col-sm-8 expand", style: "width: 99%" } %>
+                              </div>
+                          
+                               <div class="col-sm-2" style="margin-top: 10px;">
+                                <!-- <label>Category</label> -->
+                              </div>
+                              <div class="col-sm-6">
+                                   <%= f.text_field :category, label: "Category" %>
+                                </div>  
+                            
+                                 <div class="col-sm-2" style="margin-top: 10px;">
+                                  <!-- <label>Title</label> -->
+                              </div>
+                              <div class="col-sm-2" style="margin-top: 10px;">
+                                <!-- <label>Category</label> -->
+                              </div>
+                              <div class="col-sm-6">
+                                   <%= f.select :budget, options_for_select([['Free', 'Free'], ['Less than 100 FC', 'Less than 100 FC'], ["Between 100 and 500 FC", "Between 100 and 500 FC"], ["More than 500 FC", "More than 500 FC"], ["I don't know", "I don't know"]]) %>
+                                </div> 
+								
+
+                              <div class="col-sm-6">
+
+                                     <%= f.submit(@task.new_record? ? 'Create' : 'Update') %> 
+                                </div> 
+                                
+                            </div>
+                          </div>      
+                        </div>      
+                      </div>      
+                    </div>      
+                  </div>
+
+                  
+
+
+
+            </div>
+
+
+
+
+        </div>
+    </div>
+</div>
+</form>
+<br />
+
+</div>
+</div>
+
+
+<div class="footer">
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-sm-4 col-xs-12">
+                <p><strong>&copy; Faircoin 2014</strong></p>
+                <p>All rights reserved</p>
+            </div>          
+
+            <div class="col-sm-8 col-xs-12">    
+            </div>
+        </div>
+    </div>
+</div>
 <% end %>

@@ -11,8 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140504005635) do
-
+ActiveRecord::Schema.define(version: 20140504054551) do
 
   create_table "proposals", force: true do |t|
     t.text     "description"
@@ -40,12 +39,8 @@ ActiveRecord::Schema.define(version: 20140504005635) do
     t.integer  "customer_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-<<<<<<< HEAD
-    t.string   "budget"
-=======
     t.string   "title"
-    t.integer  "budget"
->>>>>>> e64a867103429971eb7012062ce4374d2d866cc3
+    t.string   "budget"
     t.integer  "user_id"
     t.string   "location"
   end

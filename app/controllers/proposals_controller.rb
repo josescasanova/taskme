@@ -26,9 +26,9 @@ class ProposalsController < ApplicationController
   end
 
   def destroy
-    proposal = Proposal.find(params[proposal_id])
+    proposal = Proposal.find(params[:id])
     proposal.destroy
-    redirect_to "index"
+    redirect_to user_task_path(current_user, params[:task_id])
   end
 
   # def show
