@@ -15,11 +15,12 @@
 
             <div class="row listing-row" style="margin-top: -10px;">
                 <div class="pull-left">
-                <h1>Tasks</h1>
+                <h1>Help Requests</h1>
+                <h3>A list of things that need to be done</h3>
                 </div>
                 <div class="pull-right">
                     <% if user_signed_in? %>
-                  <b><a href="<%= new_user_task_path(current_user) %>" class="btn btn-info" >Create a new task</a><br /><br /></b>
+                  <b><a href="<%= new_user_task_path(current_user) %>" class="btn btn-info" >Ask for Help</a><br /><br /></b>
                   <% end %>
                 </div>
             </div>
@@ -33,7 +34,7 @@
 
                 <div class="col-sm-10">
                   <div class="pull-right">
-                    <%= link_to "View Task", user_task_path(current_user, task), class: "btn btn-warning" %>
+                    <%= link_to "See full Description", user_task_path(current_user, task), class: "btn btn-warning" %>
                   </div>
                     <h3><%= link_to task.title, user_task_path(current_user, task) %></h3>
                     <p class="ad-description">

@@ -15,10 +15,10 @@
                           <a class="active" href="<%= dashboard_path %>">Dashboard</a>
                         </li>           
                         <li>
-                          <a class="active" href="<%= new_user_task_path %>">Create a new task</a>
+                          <a class="active" href="<%= new_user_task_path %>">Ask for Help</a>
                         </li>
                         <li>
-                          <a class="active" href="<%= user_tasks_path %>">View my tasks</a>
+                          <a class="active" href="<%= user_tasks_path %>">View my Requests</a>
                         </li>
                       </ul>
                     </div>
@@ -40,14 +40,14 @@
                               </div>
                                <div class="col-sm-12">
                                
-                                <%= f.number_field :price, label: "Bid", html: { class: "form-control col-sm-12" } %>
+                                <%= f.number_field :price, label: "How many FairCoins will take to make you do it?", placeholder: "e.g. 1000", html: { class: "form-control col-sm-12" } %>
                               </div>
                               <div class="col-sm-2" style="margin-top: 10px;">
                                 <!-- <label>Description</label> -->
                               </div>
 							 <div class="col-sm-12">
 							 	
-                                <%= f.text_field :description, label: "Description", html: { class: "form-control col-sm-12" }, rows: 8 %>
+                                <%= f.text_field :description, label: "Any comments?", placeholder: "e.g. Would you need to paint as well?", html: { class: "form-control col-sm-12" }, rows: 8 %>
                               </div>
                               <div class="col-sm-2" style="margin-top: 10px;">
                                 <!-- <label>Description</label> -->

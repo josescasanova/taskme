@@ -2,10 +2,10 @@
   <div class="row clearfix">
     <div class="col-md-12 column">
       <div class="page-header">
-        <h1>Tasks</h1>
+        <h1>Aid Requests</h1>
       </div>
       <% if user_signed_in? %>
-      <b><a href="<%= new_user_task_path(current_user) %>">Create a new task</a><br /><br /></b>
+      <b><a href="<%= new_user_task_path(current_user) %>">Ask for help!</a><br /><br /></b>
       <% end %>
         <% @tasks.each do |task| %>
           <b></b>

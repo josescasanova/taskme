@@ -22,10 +22,10 @@
                           <!-- <a class="active" href="<%= dashboard_path %>">Dashboard</a> -->
                         </li>           
                         <li>
-                          <a class="active" href="<%= new_user_task_path(current_user) %>">Create a new task</a>
+                          <a class="active" href="<%= new_user_task_path(current_user) %>">Ask for Help</a>
                         </li>
                         <li>
-                          <a class="active" href="<%= user_tasks_path(current_user) %>">View my tasks</a>
+                          <a class="active" href="<%= user_tasks_path(current_user) %>">View my Requests</a>
                         </li>
                       </ul>
                     </div>
@@ -47,7 +47,7 @@
                         </div>
 
                         <div class="col-sm-3 col-xs-6" style="border-right: 1px solid #DADADA; text-align: center;">
-                            <h3 style="text-align: center;">Tasks published</h3>
+                            <h3 style="text-align: center;">Published requests</h3>
                             <p><%= current_user.tasks.count %></p>
                         </div>
 
@@ -57,7 +57,7 @@
                         </div>
 
                         <div class="col-sm-3 col-xs-6" style="text-align: center;">
-                            <h3 style="text-align: center;">Total Tasks</h3>
+                            <h3 style="text-align: center;">Total requests</h3>
                             <p><%= @tasks.count %></p>
                         </div>
 
@@ -88,7 +88,7 @@
             </div>
             
             <div class="panel panel-default">
-                <div class="panel-heading">Tasks & Proposals</div>
+                <div class="panel-heading">Aid requests & Proposals for Help</div>
                 <div class="panel-body">
 
                     <% @tasks.each do |task| %>
@@ -97,21 +97,21 @@
 
                 <div class="col-sm-12">
 
-                       <h3> <b>Task:</b> <%= task.title %> </h3>
+                       <h3> <b>Request:</b> <%= task.title %> </h3>
 
                        <br>
-                       <% task.proposals.each do |y|%>
-                       <% if y.accepted.nil? %>
+                       <% task.proposals.each do |proposal|%>
+                       <% if proposal.accepted.nil? %>
                       <div class="avatar pull-left">
                         <br>
-                       <img margin="10px" src="<%= User.where(id: y.provider_id).first.image %>?&type=small">
+                       <img margin="10px" src="<%= User.where(id: proposal.provider_id).first.image %>?&type=small">
                               </div>         
 
-                         <h4><b>Bid</b> <br><%= y.price %> Faircoin<br><b>Proposal Description</b><br> <%= y.description %><br>
+                         <h4><b>Bid</b> <br><%= proposal.price %> Faircoin<br><b>Proposal Description</b><br> <%= proposal.description %><br>
                          </h4>
                          <span class="classified_links pull-right">
-                          <%= link_to "Decline", declined_path(proposal: y, user: current_user, task: task ), class: "btn btn-primary3 pull-right", style: "margin-left: 5px;" %>
-                          <%= link_to "Accept", accepted_path(proposal: y, user: current_user, task: task ), class: "btn btn-primary pull-right", style: "margin-left: 5px;" %>
+                          <%= link_to "Decline", declined_path(proposal: proposal, user: current_user, task: task ), class: "btn btn-primary3 pull-right", style: "margin-left: 5px;" %>
+                          <%= link_to "Accept", accepted_path(proposal: proposal, user: current_user, task: task ), class: "btn btn-primary pull-right", style: "margin-left: 5px;" %>
                       
                         <!-- <button type="submit" class="btn btn-primary3 pull-right" style="margin-left: 5px;">Reject</button> 
                         <button type="submit" class="btn btn-primary pull-right" style="margin-left: 5px;">Accept</button>    --> 

@@ -31,7 +31,7 @@
             <div class="row">
 
                 <div class="col-sm-7">  
-                    <h1><%= @task.title %> <% @task.budget %> </h1>
+                    <h1><%= @task.title %> </h1>
                     <p>Location: Miami, FL</p>
                     <p>Category: <%= @task.category %></p>
                 </div>
@@ -39,7 +39,7 @@
 
                 <div class="col-sm-5">
 
-                    <p class="price"><%= @task.budget%></p>
+                    <p class="price"><%= @task.budget%> FairCoins</p>
 
                 </div>
 
@@ -82,7 +82,7 @@
             <div class="row">
 
                 <div class="col-sm-7">
-                    <h3>Task Description:</h3>
+                    <h3>What needs to be done:</h3>
                     
                     <p>
                         <%= @task.description %>
@@ -104,8 +104,6 @@
 
                     <p>Posted on <%= @task.created_at.to_formatted_s(:long) %></p>
 
-    
-
                 </div>
 
               <div class="col-sm-5 center avatar" style="text-align: center">
@@ -124,7 +122,7 @@
                 
                     <%= link_to "Cancel Proposal", user_task_proposal_path(@current_user.id, @task.id, Proposal.for_current_user(@task, current_user).id), class: "btn btn-danger", method: :delete %>
                     <% else %>
-                      <%= link_to "I want to submit a proposal!", new_user_task_proposal_path(@current_user, @task), class: "btn btn-info" %>
+                      <%= link_to "Help!", new_user_task_proposal_path(@current_user, @task), class: "btn btn-info" %>
                       <%end%>
                     </div>
         </div>
