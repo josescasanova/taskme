@@ -16,6 +16,7 @@
         <li><%= link_to 'Tasks', tasks_path %></li> 
         <li><%= link_to 'Dashboard', dashboard_path %></li>
         <li><%= link_to 'Logout', signout_path %></li>
+        <li><img alt="" height="55" class="avatar" src="<%= current_user.image %>?&type=small" / ></li>
       <% else %>
         <li><%= link_to 'Login', signin_path %></li>
         <li><%= link_to 'Register', signin_path %></li>
