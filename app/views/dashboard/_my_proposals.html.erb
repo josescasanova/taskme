@@ -1,0 +1,4 @@
+<% @proposals.each do |proposal| %>
+	<p>Helping <%= User.find(Task.find(proposal.task_id).customer_id).name %> </p>
+	<p>Task: <%= Task.find(proposal.task_id).title %></p>	
+<% end %>

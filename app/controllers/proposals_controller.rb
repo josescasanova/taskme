@@ -15,7 +15,7 @@ class ProposalsController < ApplicationController
     @proposal.provider_id = current_user.id
     if @proposal.save
       flash[:notice] = "You have successfully submitted a proposal."
-      redirect_to user_tasks_path(current_user)
+      redirect_to tasks_path
     else
       flash[:alert] = "You cannot add this proposal, check the errors."
       render :new

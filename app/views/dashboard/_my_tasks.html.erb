@@ -1,0 +1,15 @@
+
+<h1>My Tasks</h1>
+
+	<% @tasks.each do |task| %>
+		Title: <%= task.title %> <br />
+		Category: <%= task.category %> <br />
+		Description: <%= task.description %> <br />
+	<% end %>
+
+	<p>You have not pending tasks. Why don't you take a look and help some one?</p>
+	<%= button_to "New task", new_user_task_path(current_user), method: :get %>
+
+<br><br>
+
+

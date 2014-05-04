@@ -6,4 +6,13 @@ Description: <%= @task.description %> <br />
 <%= link_to "I'll help you!", new_user_task_proposal_path(@current_user, @task) %>
 <% end %>
 
-<br><br><br>
+<% if current_user.id == @task.customer_id %>
+	<h3>Received Proposals</h3>
+	<%= @proposals.each do |proposal| %>
+		<ul>
+			
+			<li>Provider's name: <%= User.find(proposal.provider_id).name %></li>
+			<li>Proposal: <%= proposal.description %> </li>
+		</ul>
+	<%end%>
+	<%end%>

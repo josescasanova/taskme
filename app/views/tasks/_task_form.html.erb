@@ -1,9 +1,11 @@
 
 
 <%= form_for [:user, @task] do |f| %>
-  <p>Title:</p>                       <%= f.text_field :title, label: "Title" %>
+  <p>Task Title:</p>                       <%= f.text_field :title, label: "Title" %>
   <p>Description:</p>                  <%= f.text_field :description, label: "Description" %> <br />
+  <p>Location:</p>						<%= f.text_field :location, label: "Location" %>
   <p>Category:</p>                    <%= f.text_field :category, label: "Category" %>
   <p>Budget:</p>                    <%= f.number_field :budget, label: "Budget" %>
+
   <%= f.submit 'Create' %>
 <% end %>
