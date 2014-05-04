@@ -32,6 +32,9 @@
                 </div>
 
                 <div class="col-sm-10">
+                  <div class="pull-right">
+                    <%= link_to "View Task", user_task_path(current_user, task), class: "btn btn-warning" %>
+                  </div>
                     <h3><%= link_to task.title, user_task_path(current_user, task) %></h3>
                     <p class="ad-description">
                       <br>  
