@@ -25,7 +25,6 @@
                           <a class="active" href="<%= new_user_task_path(current_user) %>">Ask for Help</a>
                         </li>
                         <li>
-
                           <a class="active" href="<%= user_tasks_path(current_user) %>">View my Requests</a>
 
                         </li>
@@ -106,7 +105,9 @@
                        <% if proposal.accepted.nil? %>
                       <div class="avatar pull-left">
                         <br>
+                        <% if !(User.where(id: proposal.provider_id).first).nil? %>
                        <img margin="10px" src="<%= User.where(id: proposal.provider_id).first.image %>?&type=small">
+                       <% end %>
                               </div>         
 
                          <h4><b>Bid</b> <br><%= proposal.price %> Faircoin<br><b>Proposal Description</b><br> <%= proposal.description %><br>
