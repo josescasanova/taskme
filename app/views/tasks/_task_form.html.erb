@@ -5,7 +5,7 @@
   <p>Description:</p>                  <%= f.text_field :description, label: "Description" %> <br />
   <p>Location:</p>						<%= f.text_field :location, label: "Location" %>
   <p>Category:</p>                    <%= f.text_field :category, label: "Category" %>
-  <p>Budget:</p>                    <%= f.number_field :budget, label: "Budget" %>
+  <p>Budget:</p>                    <%= f.select :budget, options_for_select([['Free', 1], ['Less than 100 FC', 2], ["Between 100 and 500 FC", 3], ["More than 500 FC", 4], ["I don't know", 5]]) %>
 
   <%= f.submit 'Create' %>
 <% end %>
