@@ -1,10 +1,3 @@
-
-
-
-
-
-
-            
 <%= bootstrap_form_for @task do |f| %>
 <hr class="topbar"/>
   <div class="container">
@@ -14,23 +7,17 @@
               <div class="row ">
                 <div class="col-lg-12">
                   <div class="panel panel-default">
-                    <div class="panel-heading">My account</div>
+                    <div class="panel-heading">Faircoin</div>
                     <div class="panel-body">
                       <ul class="nav">
                         <li>
-                          <a class="active" href="account_dashboard.html">Dashboard</a>
+                          <a class="active" href="<%= dashboard_path %>">Dashboard</a>
                         </li>           
-                        <li>  
-                          <a class="active" href="account_profile.html">My profile</a>
-                        </li>
-                                    <li>
-                          <a class="active" href="account_account.html">My account</a>
+                        <li>
+                          <a class="active" href="<%= new_user_task_path %>">Create a new task</a>
                         </li>
                         <li>
-                          <a class="active" href="account_ads.html">Manage ads</a>
-                        </li>
-                        <li>
-                          <a class="active" href="account_ad_create.html">Create new ad</a>
+                          <a class="active" href="<%= user_tasks_path %>">View my tasks</a>
                         </li>
                       </ul>
                     </div>
@@ -42,7 +29,7 @@
         <div class="col-sm-9">
             <form class="form-vertical" action="">
                 <div class="panel panel-default">
-                  <div class="panel-heading"><%= @task.new_record? ? 'Create' : 'Update'%> a task!</div>
+                  <div class="panel-heading"><%= @task.new_record? ? 'Create' : 'Update'%> a task</div>
                     <div class="panel-body">
                       <div class="row">  
                         <div class="col-sm-12 "  >
