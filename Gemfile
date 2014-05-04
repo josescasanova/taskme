@@ -15,6 +15,7 @@ gem 'figaro', :github=>"laserlemon/figaro"
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'bootstrap_form'
+gem 'faker'
 
 group :development do
   gem 'better_errors'

@@ -28,7 +28,7 @@
               <br />
             <div class="row  listing-row">
                             <div class="col-sm-2 avatar" align="center">
-                    <img height="75" class="avatar" src="<%=User.where(id: task.customer_id).first.image %>?&type=normal">
+                    <img height="75" class="avatar" src="<%= User.where(id: task.customer_id).first.image %>?&type=normal">
                 </div>
 
                 <div class="col-sm-10">

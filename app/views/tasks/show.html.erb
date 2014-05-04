@@ -109,10 +109,10 @@
                 </div>
 
               <div class="col-sm-5 center avatar" style="text-align: center">
-                <img alt="" src="<%= @current_user.image %>?&type=large" / >
+                <img alt="" width="200" src="<%= User.where(id: @task.customer_id).first.image %>?&type=large" / >
 
                   <div class="col-sm-12">
-                      <h1 style="text-align: center; color: #27ae60"> <%= @current_user.name %></h1>
+                      <h1 style="text-align: center; color: #27ae60"> <%= User.where(id: @task.customer_id).first.name %></h1>
                       <Br><br>  
           </div>
           
@@ -124,7 +124,7 @@
                 
                     <%= link_to "Cancel Proposal", user_task_proposal_path(@current_user.id, @task.id, Proposal.for_current_user(@task, current_user).id), class: "btn btn-danger", method: :delete %>
                     <% else %>
-                      <%= link_to "I'll help you!", new_user_task_proposal_path(@current_user, @task), class: "btn btn-info" %>
+                      <%= link_to "I want to submit a proposal!", new_user_task_proposal_path(@current_user, @task), class: "btn btn-info" %>
                       <%end%>
                     </div>
         </div>
