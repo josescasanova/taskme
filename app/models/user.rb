@@ -17,8 +17,8 @@ class User < ActiveRecord::Base
     end
   end
 
-  # def self.has_enough_points?(user, points)
-  #   user.points >= points
-  # end
+  def self.has_enough_points?(user, points)
+    user.points >= points
+  end
 
 end

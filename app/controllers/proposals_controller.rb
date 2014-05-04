@@ -32,13 +32,21 @@ class ProposalsController < ApplicationController
   end
 
   def accepted
+
    prop = Proposal.where(id: params[:proposal]).first
-   prop.accepted = true
-   find_the_task = Task.where(id: prop.task_id).first
-   find_the_task.status = "Processing"
-   find_the_task.save!
-   prop.save!
-   redirect_to dashboard_path
+
+   if User.has_enough_points?(current_user, prop.price)
+
+     prop.accepted = true
+
+     find_the_task = Task.where(id: prop.task_id).first
+     find_the_task.status = "Processing"
+     find_the_task.save!
+     prop.save!
+   else
+    flash[:alert] = "Sorry, but you don't have enough points"
+    redirect_to dashboard_path
+   end
   end
 
   def declined
