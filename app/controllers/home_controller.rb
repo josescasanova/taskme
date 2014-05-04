@@ -5,5 +5,6 @@ class HomeController < ApplicationController
   end
 
   def tasks
+    @tasks = Task.all
   end
 end

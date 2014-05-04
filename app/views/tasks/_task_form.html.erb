@@ -1,7 +1,208 @@
+
+
+
+
+
+
+            
 <%= form_for @task do |f| %>
-  <p>Title:</p>                       <%= f.text_field :title, label: "Title" %>
-  <p>Description:</p>                  <%= f.text_field :description, label: "Description" %> <br />
-  <p>Category:</p>                    <%= f.text_field :category, label: "Category" %>
-  <p>Budget:</p>                    <%= f.number_field :budget, label: "Budget" %>
-  <%= f.submit(@task.new_record? ? 'Create' : 'Update') %>
+<hr class="topbar"/>
+  <div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="sidebar-account">   
+              <div class="row ">
+                <div class="col-lg-12">
+                  <div class="panel panel-default">
+                    <div class="panel-heading">My account</div>
+                    <div class="panel-body">
+                      <ul class="nav">
+                        <li>
+                          <a class="active" href="account_dashboard.html">Dashboard</a>
+                        </li>           
+                        <li>  
+                          <a class="active" href="account_profile.html">My profile</a>
+                        </li>
+                                    <li>
+                          <a class="active" href="account_account.html">My account</a>
+                        </li>
+                        <li>
+                          <a class="active" href="account_ads.html">Manage ads</a>
+                        </li>
+                        <li>
+                          <a class="active" href="account_ad_create.html">Create new ad</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div class="col-sm-9">
+            <form class="form-vertical" action="">
+                <div class="panel panel-default">
+                  <div class="panel-heading"><%= @task.new_record? ? 'Create' : 'Update'%> a task!</div>
+                    <div class="panel-body">
+                      <!-- <div class="row">   -->
+                        <!-- <div class="col-sm-12 "  > -->
+                          <!-- <div class="form-group"> -->
+                            <!-- <div class="row"> -->
+<!--                               <div class="col-sm-2" style="margin-top: 10px;">
+                              </div> -->
+                              <!-- <div class="col-sm-12"> -->
+                              <table>
+                                <tr>
+                                  <th>Title:</th>
+                                  <th><%= f.text_field :title, label: "Title", html: { class: "form-control col-sm-12" } %></th>
+                                </tr>
+                              </div>
+                              <!-- <div class="col-sm-2" style="margin-top: 10px;"> -->
+                              <!-- </div> -->
+                              <!-- <div class="col-sm-12"> -->
+                                <tr>
+                                  <th>Description:</th>
+                                  <th><%= f.text_field :description, label: "Description", html: { class: "form-control col-sm-8 expand", rows: "6", style: "width: 99%" } %></th>
+                                </tr>
+                              <!-- </div> -->
+                              <!-- <div class="col-sm-2" style="margin-top: 10px;"> -->
+                              <!-- </div> -->
+                              <!-- <div class="col-sm-12"> -->
+                                <tr>
+                                  <th>Budget:</th>
+                                  <th><%= f.number_field :budget, label: "Budget" %></th>
+                                </tr>
+                              <!-- </div> -->
+                               <!-- <div class="col-sm-2" style="margin-top: 10px;"> -->
+                              <!-- </div> -->
+                              <div class="col-sm-6">
+                                <tr>
+                                  <th>Category:</th>
+                                  <th><%= f.text_field :category, label: "Category" %></th>
+                                </tr>
+                                </div>  
+                                 <div class="col-sm-2" style="margin-top: 10px;">
+                              </div>
+                              <div class="col-sm-6">
+                                <tr>
+                                  <th>Submit:</th>
+                                  <th><%= f.submit(@task.new_record? ? 'Create' : 'Update') %></th>
+                                </tr>
+                                  </table>
+                                </div> 
+                                
+                            </div>
+                          </div>      
+                        </div>      
+                      </div>      
+                    </div>      
+                  </div>
+
+                  
+
+
+
+            </div>
+
+
+
+
+        </div>
+    </div>
+</div>
+</form>
+<br />
+
+</div>
+</div><!-- Modal -->
+<div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="modalLogin" aria-hidden="true">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Sign in to your account</h4>
+            </div>
+            <div class="modal-body">
+                <p>If you have an account with us, please enter your details below.</p>
+
+                <form method="POST" action="account_dashboard.html" accept-charset="UTF-8" id="user-login-form" class="form ajax" data-replace=".error-message p">
+
+                    <div class="form-group">
+                        <input placeholder="Your username/email" class="form-control" name="email" type="text">                </div>
+
+                    <div class="form-group">
+                        <input placeholder="Your password" class="form-control" name="password" type="password" value="">                </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+
+                        </div>
+                        <div class="col-md-6">
+                            <button type="submit" class="btn btn-primary pull-right">Login</button>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <a data-toggle="modal" href="#modalForgot">Forgot your password?</a>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+
+            <div class="modal-footer" style="text-align: center">
+                <div class="error-message"><p style="color: #000; font-weight: normal;">Don't have an account? <a class="link-info" href="register.html">Register now</a></p></div>
+            </div>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="modalForgot" tabindex="-1" role="dialog" aria-labelledby="modalForgot" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Forgot your password?</h4>
+            </div>
+            <div class="modal-body">
+                <p>Enter your email to continue</p>
+
+                <form role="form">
+                    <div class="form-group">
+                        <input type="email" class="form-control" placeholder="Your email address">
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+
+                        </div><div class="col-md-6">
+                        <a href="my_account.html" class="btn btn-primary pull-right">Continue</a>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="footer">
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-sm-4 col-xs-12">
+                <p><strong>&copy; Faircoin 2014</strong></p>
+                <p>All rights reserved</p>
+            </div>          
+
+            <div class="col-sm-8 col-xs-12">    
+            </div>
+        </div>
+    </div>
+</div>
 <% end %>
